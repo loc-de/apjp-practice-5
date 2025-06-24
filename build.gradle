@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.polis'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+//dependencies {
+//    testImplementation platform('org.junit:junit-bom:5.10.0')
+//    testImplementation 'org.junit.jupiter:junit-jupiter'
+//}
+
+dependencies {
+    // JUnit Jupiter API (для написання тестів)
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.13.0")
+    // JUnit Jupiter Engine (для виконання тестів)
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.13.0")
+}
+
+test {
+    useJUnitPlatform {
+        includeTags('notEquals')
+        excludeTags('equals')
+    }
+}
